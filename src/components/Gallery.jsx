@@ -51,15 +51,20 @@ export default function Gallery() {
               onClick={() => setIndex(i)}
               aria-label={`Open image: ${item.alt}`}
             >
-              <img
-                className="tile__img"
-                src={item.src}
-                alt={item.alt}
-                style={{ objectPosition: item.focus }}
-                /* The first two tiles sit above the fold on most screens */
-                loading={i < 2 ? "eager" : "lazy"}
-                decoding="async"
-              />
+              <picture>
+                <source srcSet={item.src.replace(/\.jpg$/, ".webp")} type="image/webp" />
+                <img
+                  className="tile__img"
+                  src={item.src}
+                  alt={item.alt}
+                  width={item.w}
+                  height={item.h}
+                  style={{ objectPosition: item.focus }}
+                  /* The first two tiles sit above the fold on most screens */
+                  loading={i < 2 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+              </picture>
               <span className="tile__cap">{item.title}</span>
             </button>
           ))}
@@ -100,7 +105,10 @@ export default function Gallery() {
 
           <figure onClick={(e) => e.stopPropagation()} style={{ margin: 0 }}>
             <div className="lightbox__frame">
-              <img src={current.src} alt={current.alt} decoding="async" />
+              <picture>
+                <source srcSet={current.src.replace(/\.jpg$/, ".webp")} type="image/webp" />
+                <img src={current.src} alt={current.alt} decoding="async" />
+              </picture>
             </div>
             <figcaption className="lightbox__cap">
               {current.title} — {index + 1} of {GALLERY.length}

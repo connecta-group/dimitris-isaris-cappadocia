@@ -7,12 +7,17 @@ export default function Artist() {
       <div className="shell">
         <div className="artist__grid">
           <div className="artist__portrait reveal">
-            <img
-              src="/dimitris-hero.png"
-              alt="Portrait of Dimitris Isaris with his guitar above the Cappadocia valley"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture>
+              <source srcSet="/dimitris-hero.webp" type="image/webp" />
+              <img
+                src="/dimitris-hero.jpg"
+                alt="Portrait of Dimitris Isaris with his guitar above the Cappadocia valley"
+                width="1920"
+                height="1078"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
 
           <div className="artist__body reveal" data-delay="1">

@@ -121,12 +121,18 @@ export default function Hero() {
 
       {/* RIGHT — photograph only. No text, badge, countdown or overlay. */}
       <div className="hero__right">
-        <img
-          src="/dimitris-hero.png"
-          alt="Dimitris Isaris playing classical guitar on a terrace as hot air balloons rise over the Cappadocia valley at sunrise"
-          fetchPriority="high"
-          decoding="async"
-        />
+        <picture>
+          <source srcSet="/dimitris-hero.webp" type="image/webp" />
+          <img
+            src="/dimitris-hero.jpg"
+            alt="Dimitris Isaris playing classical guitar on a terrace as hot air balloons rise over the Cappadocia valley at sunrise"
+            width="1920"
+            height="1078"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
       </div>
     </section>
   );

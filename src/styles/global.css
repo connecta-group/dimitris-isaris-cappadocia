@@ -95,6 +95,20 @@ iframe {
   max-width: 100%;
 }
 
+/* <picture> is inline by default — without this it collapses to zero height
+   and any child img sized with height:100% disappears. */
+picture {
+  display: block;
+}
+
+.hero__right picture,
+.artist__portrait picture,
+.tile picture,
+.lightbox__frame picture {
+  width: 100%;
+  height: 100%;
+}
+
 button,
 input,
 select,
@@ -324,11 +338,18 @@ ol {
 
 /* Reveal on scroll ------------------------------------------- */
 
+/* The hidden start state is applied ONLY when JS is running (html.js is set
+   by main.jsx before render). If the bundle fails, never executes, or the
+   IntersectionObserver never fires, content stays visible instead of being
+   stuck at opacity 0 — which is what made images vanish on mobile. */
 .reveal {
-  opacity: 0;
-  transform: translateY(26px);
   transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
   will-change: opacity, transform;
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(26px);
 }
 
 .reveal.is-in {

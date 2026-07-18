@@ -27,6 +27,19 @@ export default function useReveal() {
     );
 
     nodes.forEach((n) => io.observe(n));
-    return () => io.disconnect();
+
+    // Safety net: if the observer never fires for something (mobile Safari
+    // occasionally misses targets during fast scroll or bfcache restore),
+    // reveal whatever is still hidden rather than leaving it invisible.
+    const failsafe = window.setTimeout(() => {
+      document
+        .querySelectorAll(".reveal:not(.is-in)")
+        .forEach((n) => n.classList.add("is-in"));
+    }, 3000);
+
+    return () => {
+      io.disconnect();
+      window.clearTimeout(failsafe);
+    };
   }, []);
 }

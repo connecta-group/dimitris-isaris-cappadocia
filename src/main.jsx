@@ -4,6 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./styles/global.css";
 
+// Enables the scroll-reveal hidden state. Without JS the class is never added
+// and .reveal content renders visible rather than staying at opacity 0.
+document.documentElement.classList.add("js");
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
