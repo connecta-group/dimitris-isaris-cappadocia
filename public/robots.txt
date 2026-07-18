@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dimitrisisaris-cappadocia.netlify.app/sitemap.xml
