@@ -17,8 +17,9 @@ export default function Location() {
             Cappadocia, in the heart of the <em>valleys</em>.
           </h2>
           <p className="lede reveal" data-delay="1">
-            Two airports serve Cappadocia. Tell us your flight number and a
-            driver will be waiting in arrivals with your name.
+            Nevşehir Kapadokya Airport is the recommended arrival airport for
+            this experience. Send us your flight number and a driver will be
+            waiting in arrivals with your name.
           </p>
         </div>
 

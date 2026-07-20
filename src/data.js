@@ -146,7 +146,7 @@ export const PROGRAM = [
 
 export const SERVICES = [
   { icon: "car", title: "Private Mercedes fleet", body: "Vito and Sprinter vehicles at your disposal for the entire programme." },
-  { icon: "plane", title: "Airport transfers", body: "Arrival and departure, both airports, both bus terminals." },
+  { icon: "plane", title: "Airport transfers", body: "Arrival and departure, airport and bus terminal." },
   { icon: "guide", title: "Licensed guide", body: "A professional Cappadocia guide with you throughout the touring days." },
   { icon: "bed", title: "3 nights accommodation", body: "Cave suites in Ürgüp with valley-facing terraces." },
   { icon: "coffee", title: "Daily breakfast", body: "Served on the terrace, balloons overhead if the wind agrees." },
