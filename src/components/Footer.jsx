@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "./Icon";
 import {
@@ -10,16 +9,6 @@ import {
 } from "../config";
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-
-  // Opens the official subscription page in a new tab. Works whether or not
-  // an email has been typed — no validation gate. Triggered by clicking
-  // Subscribe or pressing Enter in the field.
-  const submit = (e) => {
-    e.preventDefault();
-    window.open(NEWSLETTER_URL, "_blank", "noopener,noreferrer");
-  };
-
   return (
     <footer className="footer">
       <div className="shell">
@@ -51,23 +40,14 @@ export default function Footer() {
               Future editions are announced to this list first, usually before
               they go public. Roughly four emails a year.
             </p>
-            <form className="news__form" onSubmit={submit} noValidate>
-              <label htmlFor="news-email" className="sr-only">
-                Email address
-              </label>
-              <input
-                id="news-email"
-                type="email"
-                inputMode="email"
-                autoComplete="email"
-                placeholder="your@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <button className="btn btn--ghost-light" type="submit">
-                Subscribe
-              </button>
-            </form>
+            <a
+              className="btn btn--ghost-light news__cta"
+              href={NEWSLETTER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Subscribe to the mailing list
+            </a>
           </div>
         </div>
 
