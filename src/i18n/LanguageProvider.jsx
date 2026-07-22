@@ -3,7 +3,9 @@ import { translations } from "./translations";
 
 const STORAGE_KEY = "dimitris_site_language";
 const SUPPORTED = ["en", "tr"];
-const DEFAULT = "en";
+// New visitors with no saved preference default to Turkish. A previously saved
+// choice (en or tr) always wins — see readStored().
+const DEFAULT = "tr";
 
 const LanguageContext = createContext(null);
 
