@@ -56,7 +56,8 @@ export const PROGRAMME_FILENAME = "Dimitris-Isaris-Cappadocia-Programme.jpg";
 export const DOWNLOAD_PROGRAM_LINK = PROGRAMME_IMAGE;
 
 /** Paste a YouTube or Vimeo link here. Opens in a new tab. */
-export const VIDEO_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+export const VIDEO_URL =
+  "https://www.instagram.com/reel/DbG-JyPqw19/?igsh=aGx0dHR4cHZoNzB0";
 /** Alias */
 export const VIDEO_LINK = VIDEO_URL;
 
