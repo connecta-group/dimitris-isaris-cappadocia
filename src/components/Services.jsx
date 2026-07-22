@@ -1,5 +1,6 @@
 import Icon from "./Icon";
 import { SERVICES } from "../data";
+import { track } from "../lib/pixel";
 import { AVAILABILITY_LABEL, BOOKING_LINK, PRICE, PRICE_NOTE } from "../config";
 
 export default function Services() {
@@ -43,7 +44,11 @@ export default function Services() {
             <br />
             <span className="price-bar__flag">{AVAILABILITY_LABEL}</span>
           </p>
-          <a className="btn" href={BOOKING_LINK}>
+          <a
+            className="btn"
+            href={BOOKING_LINK}
+            onClick={() => track("InitiateCheckout")}
+          >
             Reserve your place
           </a>
         </div>

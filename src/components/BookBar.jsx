@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { track } from "../lib/pixel";
 import { AVAILABILITY_LABEL, BOOKING_LINK, PRICE } from "../config";
 
 export default function BookBar() {
@@ -23,7 +24,12 @@ export default function BookBar() {
         <b>{PRICE}</b>
         <span>{AVAILABILITY_LABEL}</span>
       </div>
-      <a className="btn" href={BOOKING_LINK} tabIndex={show ? 0 : -1}>
+      <a
+        className="btn"
+        href={BOOKING_LINK}
+        tabIndex={show ? 0 : -1}
+        onClick={() => track("InitiateCheckout")}
+      >
         Reserve your place
       </a>
     </div>

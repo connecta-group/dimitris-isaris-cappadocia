@@ -1,4 +1,5 @@
 import Icon from "./Icon";
+import { track } from "../lib/pixel";
 import {
   AVAILABILITY_LABEL,
   AVAILABILITY_NOTE,
@@ -54,7 +55,11 @@ export default function Reservation() {
 
           <div className="booking__action">
             {HAS_STRIPE_LINK ? (
-              <a className="btn btn--block booking__cta" href={STRIPE_PAYMENT_LINK}>
+              <a
+                className="btn btn--block booking__cta"
+                href={STRIPE_PAYMENT_LINK}
+                onClick={() => track("InitiateCheckout")}
+              >
                 Reserve &amp; Pay Securely
               </a>
             ) : (

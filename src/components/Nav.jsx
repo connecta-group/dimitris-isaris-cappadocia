@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { track } from "../lib/pixel";
 import { BOOKING_LINK, EMAIL, PHONE, PHONE_RAW } from "../config";
 
 const LINKS = [
@@ -78,7 +79,11 @@ export default function Nav() {
             ))}
           </nav>
 
-          <a className="btn nav__cta" href={BOOKING_LINK}>
+          <a
+            className="btn nav__cta"
+            href={BOOKING_LINK}
+            onClick={() => track("InitiateCheckout")}
+          >
             Reserve your place
           </a>
 

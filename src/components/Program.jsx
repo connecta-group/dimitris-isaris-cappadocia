@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Icon from "./Icon";
 import { PROGRAM } from "../data";
+import { trackCustom } from "../lib/pixel";
 import { PROGRAMME_FILENAME, PROGRAMME_IMAGE } from "../config";
 
 function Day({ day, open, onToggle }) {
@@ -106,6 +107,7 @@ export default function Program() {
             href={PROGRAMME_IMAGE}
             download={PROGRAMME_FILENAME}
             type="image/jpeg"
+            onClick={() => trackCustom("DownloadBrochure")}
           >
             <Icon name="download" size={17} />
             Download Brochure

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Icon from "./Icon";
+import { trackCustom } from "../lib/pixel";
 import {
   COPYRIGHT,
   EVENT_DATE,
@@ -45,6 +46,7 @@ export default function Footer() {
               href={NEWSLETTER_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackCustom("NewsletterClick")}
             >
               Subscribe to the mailing list
             </a>

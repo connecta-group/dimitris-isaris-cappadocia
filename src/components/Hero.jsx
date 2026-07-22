@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import Icon from "./Icon";
 import useCountdown from "../hooks/useCountdown";
+import { track, trackCustom } from "../lib/pixel";
 import {
   AVAILABILITY_LABEL,
   AVAILABILITY_NOTE,
@@ -78,7 +79,11 @@ export default function Hero() {
         </p>
 
         <div className="hero__actions">
-          <a className="btn" href={BOOKING_LINK}>
+          <a
+            className="btn"
+            href={BOOKING_LINK}
+            onClick={() => track("InitiateCheckout")}
+          >
             Reserve your place
           </a>
           <a
@@ -86,6 +91,7 @@ export default function Hero() {
             href={PROGRAMME_IMAGE}
             download={PROGRAMME_FILENAME}
             type="image/jpeg"
+            onClick={() => trackCustom("DownloadBrochure")}
           >
             <Icon name="download" size={17} />
             Download Brochure
@@ -95,6 +101,7 @@ export default function Hero() {
             href={VIDEO_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackCustom("WatchFilm")}
           >
             <Icon name="play" size={17} />
             Watch the film
