@@ -5,18 +5,19 @@ import {
   COPYRIGHT,
   EVENT_DATE,
   LEGAL_LINKS,
+  NEWSLETTER_URL,
   SOCIAL_LINKS,
 } from "../config";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
-  const [ok, setOk] = useState(false);
 
+  // Opens the official subscription page in a new tab. Works whether or not
+  // an email has been typed — no validation gate. Triggered by clicking
+  // Subscribe or pressing Enter in the field.
   const submit = (e) => {
     e.preventDefault();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return;
-    setOk(true);
-    setEmail("");
+    window.open(NEWSLETTER_URL, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -50,28 +51,23 @@ export default function Footer() {
               Future editions are announced to this list first, usually before
               they go public. Roughly four emails a year.
             </p>
-            {ok ? (
-              <p className="news__ok">You are on the list. Thank you.</p>
-            ) : (
-              <form className="news__form" onSubmit={submit} noValidate>
-                <label htmlFor="news-email" className="sr-only">
-                  Email address
-                </label>
-                <input
-                  id="news-email"
-                  type="email"
-                  inputMode="email"
-                  autoComplete="email"
-                  placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <button className="btn btn--ghost-light" type="submit">
-                  Subscribe
-                </button>
-              </form>
-            )}
+            <form className="news__form" onSubmit={submit} noValidate>
+              <label htmlFor="news-email" className="sr-only">
+                Email address
+              </label>
+              <input
+                id="news-email"
+                type="email"
+                inputMode="email"
+                autoComplete="email"
+                placeholder="your@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <button className="btn btn--ghost-light" type="submit">
+                Subscribe
+              </button>
+            </form>
           </div>
         </div>
 

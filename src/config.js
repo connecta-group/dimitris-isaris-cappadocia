@@ -26,6 +26,9 @@ export const PHONE_RAW = "905431516339";
 export const INSTAGRAM = "https://www.instagram.com/dimitris_isaris";
 export const FACEBOOK = "https://www.facebook.com/DimitrisIsarisofficial";
 export const YOUTUBE = "https://www.youtube.com/@dimitris_isaris";
+
+/** Newsletter sign-up — the official page linked from the Instagram bio. */
+export const NEWSLETTER_URL = "https://dimitrisisaris.subscribepage.io";
 export const GOOGLE_MAPS =
   "https://www.google.com/maps/search/?api=1&query=%C3%9Crg%C3%BCp%2C%20Cappadocia%2C%20T%C3%BCrkiye";
 export const GOOGLE_MAPS_EMBED =
@@ -117,6 +120,7 @@ export default {
   INSTAGRAM,
   FACEBOOK,
   YOUTUBE,
+  NEWSLETTER_URL,
   GOOGLE_MAPS,
   GOOGLE_MAPS_EMBED,
   STRIPE_PAYMENT_LINK,
