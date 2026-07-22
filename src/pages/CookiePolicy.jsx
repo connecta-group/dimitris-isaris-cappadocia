@@ -1,11 +1,12 @@
 import LegalPage from "../components/LegalPage";
+import { useLang } from "../i18n/LanguageProvider";
 import { EMAIL } from "../config";
 
 const UPDATED = "18 July 2026";
 
-export default function CookiePolicy() {
+function BodyEN() {
   return (
-    <LegalPage title="Cookie Policy" updated={UPDATED}>
+    <>
       <p className="legal__lede">
         This website does not use cookies. There is no analytics, no advertising
         and no visitor tracking of any kind, so there is nothing for you to
@@ -85,6 +86,104 @@ export default function CookiePolicy() {
         Questions about this page? Write to{" "}
         <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
       </p>
+    </>
+  );
+}
+
+function BodyTR() {
+  return (
+    <>
+      <p className="legal__lede">
+        Bu web sitesi çerez kullanmaz. Hiçbir analiz, reklam veya ziyaretçi
+        takibi yoktur; dolayısıyla kabul edeceğiniz ya da reddedeceğiniz bir şey
+        ve kapatmanız gereken bir onay bildirimi bulunmaz.
+      </p>
+
+      <h2>1. Bu sitenin yapmadıkları</h2>
+      <p>
+        Bu sayfayı yazmadan önce web sitesinin kodunu inceledik. Kendine ait
+        hiçbir çerez ayarlamaz ve tarayıcınızın yerel depolamasında veya oturum
+        depolamasında hiçbir şey saklamaz. Özellikle şunlar yoktur:
+      </p>
+      <ul>
+        <li>analiz yok — Google Analytics veya benzeri yok;</li>
+        <li>reklam veya yeniden pazarlama etiketi yok;</li>
+        <li>sosyal medya takip pikseli yok;</li>
+        <li>oturum tanımlayıcısı yok, hesap veya oturum açma sistemi yok;</li>
+        <li>siteler arası veya davranışsal profil çıkarma yok.</li>
+      </ul>
+      <p>
+        Zorunlu olmayan hiçbir teknoloji kurulu olmadığından, bu sayfa pazarlama
+        veya analiz kategorilerini listelemez. Bu durum ileride değişirse bu
+        sayfayı güncelleyeceğiz ve zorunlu olmayan hiçbir betik, yalnızca siz
+        onay verdikten sonra yüklenecek.
+      </p>
+
+      <h2>2. Rezervasyon formu</h2>
+      <p>
+        Rezervasyon formu, web sitesi barındırıcımızın sağladığı form hizmeti
+        olan Netlify Forms'a gönderilir. Doldurduğunuz alanları iletir. Bunun
+        çalışması için cihazınıza herhangi bir çerez yerleştirilmez ve ziyaretinize
+        dair hiçbir şey sonrasında tarayıcınızda tutulmaz.
+      </p>
+
+      <h2>3. Google'dan yüklenen yazı tipleri</h2>
+      <p>
+        Sitenin yazı tipleri Google Fonts'tan yüklenir. Bir sayfa açıldığında
+        tarayıcınız bu yazı tipi dosyalarını Google'ın sunucularından ister; bu
+        da IP adresinizin ve temel istek bilgilerinizin Google tarafından
+        görülebileceği anlamına gelir.
+      </p>
+      <p>
+        Bu bir çerez değil, bir ağ isteğidir: Google Fonts bu yolla cihazınıza
+        çerez yerleştirmez ve tarayıcınızda hiçbir tanımlayıcı saklanmaz. Bunu,
+        üçüncü bir tarafa veri aktarımı olduğu ve gerçekleştiğini bilme hakkınız
+        bulunduğu için belirtiyoruz. Bu konu Gizlilik Politikası'nda ayrıntılı
+        olarak açıklanmıştır.
+      </p>
+
+      <h2>4. Gömülü harita</h2>
+      <p>
+        Konum bölümü, Ürgüp'ü gösteren bir Google Haritalar çerçevesi içerir.
+        Google, bu siteden bağımsız olarak, kendi politikaları kapsamında bu
+        gömülü çerçeve içinde kendi çerezlerini yerleştirebilir. Çerçeve yalnızca
+        sayfanın o bölümünün bir parçası olarak yüklenir. Bundan tamamen
+        kaçınmak isterseniz, "Google Haritalar'da Aç" düğmesi aynı konumu yeni bir
+        sekmede açar ve üçüncü taraf çerezlerini tarayıcı ayarlarınızdan
+        engelleyebilirsiniz.
+      </p>
+
+      <h2>5. Tarayıcınızda çerezleri yönetme</h2>
+      <p>
+        Bu site hiçbir çerez ayarlamadığından, burada temizlemeniz gereken bir
+        şey yoktur. Harita çerçevesi gibi gömülü üçüncü taraflarca ayarlanan
+        çerezleri yönetmek isterseniz, her büyük tarayıcı bunları gizlilik
+        ayarları üzerinden engellemenize veya silmenize olanak tanır ve üçüncü
+        taraf çerezlerini tümüyle reddetme seçeneği sunar.
+      </p>
+
+      <h2>6. Değişiklikler</h2>
+      <p>
+        İleride analiz veya zorunlu olmayan başka bir teknoloji eklersek, bu
+        sayfayı güncelleyecek, uygun onay kontrollerini ekleyecek ve siz onay
+        vermeden zorunlu olmayan hiçbir şeyi yüklemeyeceğiz.
+      </p>
+
+      <h2>7. İletişim</h2>
+      <p>
+        Bu sayfayla ilgili sorularınız mı var? Bize yazın:{" "}
+        <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
+      </p>
+    </>
+  );
+}
+
+export default function CookiePolicy() {
+  const { lang } = useLang();
+  const title = lang === "tr" ? "Çerez Politikası" : "Cookie Policy";
+  return (
+    <LegalPage title={title} updated={UPDATED}>
+      {lang === "tr" ? <BodyTR /> : <BodyEN />}
     </LegalPage>
   );
 }

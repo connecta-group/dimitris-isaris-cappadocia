@@ -1,27 +1,27 @@
 import { useState } from "react";
 import Icon from "./Icon";
-import { FAQ } from "../data";
+import { useLang } from "../i18n/LanguageProvider";
 import { EMAIL } from "../config";
 
 export default function Faq() {
+  const { t } = useLang();
   const [open, setOpen] = useState(0);
 
   return (
     <section className="section" id="faq">
       <div className="shell">
         <div className="section-head section-head--split">
-          <p className="eyebrow reveal">Questions</p>
+          <p className="eyebrow reveal">{t.faq.eyebrow}</p>
           <h2 className="section-title reveal">
-            Frequently Asked <em>Questions</em>
+            {t.faq.titleTop} <em>{t.faq.titleEm}</em>
           </h2>
           <p className="lede reveal" data-delay="1">
-            If something is not covered here, write to us directly — we answer
-            personally.
+            {t.faq.lede}
           </p>
         </div>
 
         <div className="faq reveal">
-          {FAQ.map((item, i) => {
+          {t.faq.items.map((item, i) => {
             const isOpen = open === i;
             return (
               <article className={`faq__item ${isOpen ? "is-open" : ""}`} key={item.q}>
@@ -55,7 +55,7 @@ export default function Faq() {
         </div>
 
         <p className="faq__foot reveal">
-          Still deciding? Write to <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
+          {t.faq.footPre} <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
         </p>
       </div>
     </section>

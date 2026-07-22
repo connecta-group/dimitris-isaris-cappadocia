@@ -1,15 +1,20 @@
 import { useCallback, useEffect, useState } from "react";
 import Icon from "./Icon";
+import { useLang } from "../i18n/LanguageProvider";
 import { GALLERY } from "../data";
 
 export default function Gallery() {
+  const { t } = useLang();
+  // Structure (src, dimensions, focal point, span) stays in data.js; the
+  // translatable title + alt come from the active language, matched by index.
+  const items = GALLERY.map((g, i) => ({ ...g, ...t.gallery.items[i] }));
   const [index, setIndex] = useState(null);
   const isOpen = index !== null;
 
   const close = useCallback(() => setIndex(null), []);
   const step = useCallback(
-    (dir) => setIndex((i) => (i === null ? i : (i + dir + GALLERY.length) % GALLERY.length)),
-    []
+    (dir) => setIndex((i) => (i === null ? i : (i + dir + items.length) % items.length)),
+    [items.length]
   );
 
   useEffect(() => {
@@ -27,29 +32,28 @@ export default function Gallery() {
     };
   }, [isOpen, close, step]);
 
-  const current = isOpen ? GALLERY[index] : null;
+  const current = isOpen ? items[index] : null;
 
   return (
     <section className="section" id="gallery">
       <div className="shell">
         <div className="section-head section-head--split">
-          <p className="eyebrow reveal">Gallery</p>
+          <p className="eyebrow reveal">{t.gallery.eyebrow}</p>
           <h2 className="section-title reveal">
-            What four days in <em>Cappadocia</em> look like.
+            {t.gallery.titleTop} <em>{t.gallery.titleEm}</em> {t.gallery.titleEnd}
           </h2>
           <p className="lede reveal" data-delay="1">
-            Select any frame to open it full size. Use the arrow keys to move
-            through the set.
+            {t.gallery.lede}
           </p>
         </div>
 
         <div className="gallery__grid reveal">
-          {GALLERY.map((item, i) => (
+          {items.map((item, i) => (
             <button
               key={item.id}
               className={`tile ${item.span ? `tile--${item.span}` : ""}`}
               onClick={() => setIndex(i)}
-              aria-label={`Open image: ${item.alt}`}
+              aria-label={`${t.gallery.openImage} ${item.alt}`}
             >
               <picture>
                 <source srcSet={item.src.replace(/\.jpg$/, ".webp")} type="image/webp" />
@@ -79,12 +83,12 @@ export default function Gallery() {
           aria-label={current.alt}
           onClick={close}
         >
-          <button className="lightbox__close" onClick={close} aria-label="Close image">
+          <button className="lightbox__close" onClick={close} aria-label={t.gallery.closeImage}>
             <Icon name="close" size={20} />
           </button>
           <button
             className="lightbox__nav lightbox__nav--prev"
-            aria-label="Previous image"
+            aria-label={t.gallery.prevImage}
             onClick={(e) => {
               e.stopPropagation();
               step(-1);
@@ -94,7 +98,7 @@ export default function Gallery() {
           </button>
           <button
             className="lightbox__nav lightbox__nav--next"
-            aria-label="Next image"
+            aria-label={t.gallery.nextImage}
             onClick={(e) => {
               e.stopPropagation();
               step(1);
@@ -111,7 +115,7 @@ export default function Gallery() {
               </picture>
             </div>
             <figcaption className="lightbox__cap">
-              {current.title} — {index + 1} of {GALLERY.length}
+              {current.title} — {index + 1} {t.gallery.of} {items.length}
             </figcaption>
           </figure>
         </div>

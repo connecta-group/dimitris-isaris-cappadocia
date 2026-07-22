@@ -1,8 +1,7 @@
 import Icon from "./Icon";
 import { track } from "../lib/pixel";
+import { useLang } from "../i18n/LanguageProvider";
 import {
-  AVAILABILITY_LABEL,
-  AVAILABILITY_NOTE,
   EMAIL,
   EVENT_DATE,
   EVENT_DURATION,
@@ -13,18 +12,17 @@ import {
 } from "../config";
 
 export default function Reservation() {
+  const { t } = useLang();
   return (
     <section className="section" id="reservation">
       <div className="shell">
         <div className="section-head section-head--split">
-          <p className="eyebrow reveal">Reserve</p>
+          <p className="eyebrow reveal">{t.booking.eyebrow}</p>
           <h2 className="section-title reveal">
-            Reserve Your Cappadocia <em>Experience</em>
+            {t.booking.titleTop} <em>{t.booking.titleEm}</em>
           </h2>
           <p className="lede reveal" data-delay="1">
-            Secure your place through our encrypted Stripe checkout. Your
-            booking is confirmed only after successful payment and written
-            confirmation from Dimitris Isaris Experiences.
+            {t.booking.lede}
           </p>
         </div>
 
@@ -35,11 +33,11 @@ export default function Reservation() {
 
             <dl className="booking__meta">
               <div>
-                <dt>Dates</dt>
+                <dt>{t.booking.datesLabel}</dt>
                 <dd>{EVENT_DATE} 2026</dd>
               </div>
               <div>
-                <dt>Duration</dt>
+                <dt>{t.booking.durationLabel}</dt>
                 <dd>{EVENT_DURATION}</dd>
               </div>
             </dl>
@@ -47,8 +45,8 @@ export default function Reservation() {
             <p className="availability availability--dark">
               <span className="dot-pulse" aria-hidden="true" />
               <span className="availability__text">
-                <b>{AVAILABILITY_LABEL}</b>
-                <i>{AVAILABILITY_NOTE}</i>
+                <b>{t.availability.label}</b>
+                <i>{t.availability.note}</i>
               </span>
             </p>
           </div>
@@ -60,7 +58,7 @@ export default function Reservation() {
                 href={STRIPE_PAYMENT_LINK}
                 onClick={() => track("InitiateCheckout")}
               >
-                Reserve &amp; Pay Securely
+                {t.booking.cta}
               </a>
             ) : (
               <>
@@ -70,31 +68,26 @@ export default function Reservation() {
                   disabled
                   aria-describedby="stripe-config-note"
                 >
-                  Reserve &amp; Pay Securely
+                  {t.booking.cta}
                 </button>
                 <p className="booking__config" id="stripe-config-note" role="status">
-                  Online booking is not available yet — the payment link has not
-                  been configured. Please write to{" "}
-                  <a href={`mailto:${EMAIL}`}>{EMAIL}</a> and we will arrange
-                  your place directly.
+                  {t.booking.configNote1}{" "}
+                  <a href={`mailto:${EMAIL}`}>{EMAIL}</a> {t.booking.configNote2}
                 </p>
               </>
             )}
 
             <p className="booking__secure">
               <Icon name="star" size={15} aria-hidden="true" />
-              Payment is processed by Stripe. Card details are never entered on
-              this website.
+              {t.booking.secure}
             </p>
 
             <p className="booking__after">
-              After completing your payment, you will receive a Stripe payment
-              confirmation. Our team will then contact you with the final
-              booking confirmation and travel details.
+              {t.booking.after}
             </p>
 
             <p className="booking__contact">
-              Questions before booking?
+              {t.booking.contactPre}
               <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
             </p>
           </div>

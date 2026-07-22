@@ -1,10 +1,11 @@
 import LegalPage from "../components/LegalPage";
+import { useLang } from "../i18n/LanguageProvider";
 
 const UPDATED = "18 July 2026";
 
-export default function TermsAndConditions() {
+function BodyEN() {
   return (
-    <LegalPage title="Booking Terms & Conditions" updated={UPDATED}>
+    <>
       <h2>1. Booking</h2>
       <p>
         Your reservation is confirmed only upon receipt of the required payment
@@ -162,6 +163,181 @@ export default function TermsAndConditions() {
         <span>Founder</span>
         <span>Dimitris Isaris Experiences</span>
       </p>
+    </>
+  );
+}
+
+function BodyTR() {
+  return (
+    <>
+      <h2>1. Rezervasyon</h2>
+      <p>
+        Rezervasyonunuz, yalnızca gerekli ödemenin alınması ve Dimitris Isaris
+        Experiences'tan yazılı bir rezervasyon onayının gelmesiyle kesinleşir.
+      </p>
+      <p>
+        Rezervasyonunuzu tamamlayarak bu Şartlar ve Koşulları okuduğunuzu ve
+        kabul ettiğinizi onaylamış olursunuz.
+      </p>
+
+      <h2>2. Fiyata Dahil Olanlar</h2>
+      <p>Deneyiminize şunlar dahildir:</p>
+      <ul>
+        <li>Butik Mağara Otel konaklaması (3 gece)</li>
+        <li>Günlük kahvaltı</li>
+        <li>Hoş geldin yemeği</li>
+        <li>VIP havalimanı transferleri</li>
+        <li>Programlanan tüm etkinlikler boyunca VIP transferler</li>
+        <li>Programda açıklanan özenle seçilmiş etkinlikler</li>
+        <li>Dimitris Isaris'in özel canlı akustik konseri</li>
+        <li>Deneyim boyunca profesyonel fotoğraf ve video çekimi</li>
+      </ul>
+      <p>
+        Aksi belirtilmedikçe, uluslararası uçuşlar, seyahat sigortası, kişisel
+        harcamalar, isteğe bağlı etkinlikler ve özellikle listelenmeyen öğünler
+        dahil değildir.
+      </p>
+
+      <h2>3. Ödemeler</h2>
+      <p>
+        Yazılı olarak aksi kararlaştırılmadıkça, rezervasyonunuzu güvence altına
+        almak için tam ödeme gereklidir.
+      </p>
+      <p>Tüm ödemeler Stripe aracılığıyla güvenli şekilde işlenir.</p>
+      <p>
+        Rezervasyonunuz yalnızca başarılı ödeme ve Dimitris Isaris Experiences'tan
+        gelen yazılı onaydan sonra kesinleşir.
+      </p>
+
+      <h2>4. İptal Politikası</h2>
+      <p>
+        <b>Hareket tarihinden 60 günden fazla önce:</b>
+        <br />
+        İade edilmeyen depozito düşülerek tam iade.
+      </p>
+      <p>
+        <b>Hareket tarihinden 30–59 gün önce:</b>
+        <br />
+        Toplam rezervasyon tutarının %50'si iade edilir.
+      </p>
+      <p>
+        <b>Hareket tarihinden 30 günden az önce:</b>
+        <br />
+        İade yapılmaz.
+      </p>
+      <p>
+        Rezervasyonlar, yazılı onaya tabi olarak, hareket tarihinden en geç 14
+        gün öncesine kadar başka bir misafire devredilebilir.
+      </p>
+
+      <h2>5. Deneyimdeki Değişiklikler</h2>
+      <p>
+        Program ilan edildiği şekilde sunulmaya azami özen gösterilecek olmakla
+        birlikte, Dimitris Isaris Experiences; hava koşulları, güvenlik
+        değerlendirmeleri, operasyonel gereklilikler veya kontrolümüz dışındaki
+        durumlar nedeniyle gerektiğinde etkinlikleri, konaklamayı, programı veya
+        mekânları değiştirme hakkını saklı tutar.
+      </p>
+      <p>
+        Makul ölçüde mümkün olan her durumda eşdeğer alternatifler daima
+        sağlanacaktır.
+      </p>
+
+      <h2>6. Seyahat Sigortası</h2>
+      <p>
+        Misafirlerin, aşağıdakileri kapsayan kapsamlı bir seyahat sigortası
+        yaptırmaları şiddetle tavsiye edilir:
+      </p>
+      <ul>
+        <li>Tıbbi masraflar</li>
+        <li>Seyahat iptali</li>
+        <li>Kişisel eşyalar</li>
+        <li>Uçuş aksaklıkları</li>
+      </ul>
+
+      <h2>7. Misafir Sorumlulukları</h2>
+      <p>Misafirler şunlardan sorumludur:</p>
+      <ul>
+        <li>Geçerli seyahat belgelerine sahip olmak</li>
+        <li>Yerel yasa ve düzenlemelere uymak</li>
+        <li>Etkinlikler sırasında verilen güvenlik talimatlarına uymak</li>
+        <li>Diğer misafirlere, yerel topluluklara ve mülke saygı göstermek</li>
+      </ul>
+      <p>
+        Kişisel ihmalden kaynaklanan her türlü masraf misafirin sorumluluğunda
+        kalır.
+      </p>
+
+      <h2>8. Fotoğraf ve Medya</h2>
+      <p>
+        Deneyim sırasında profesyonel fotoğraf ve video çekimi
+        gerçekleştirilebilir.
+      </p>
+      <p>
+        Katılarak, misafirler Dimitris Isaris Experiences'a; sosyal medya, web
+        sitesi ve pazarlama materyalleri de dahil olmak üzere tanıtım amacıyla
+        seçilmiş fotoğraf ve video görüntülerini kullanma izni verir.
+      </p>
+      <p>
+        Tanıtım içeriklerinde yer almak istemeyen misafirlerin, deneyim
+        başlamadan önce bize yazılı olarak bildirmeleri gerekir.
+      </p>
+
+      <h2>9. Sorumluluk</h2>
+      <p>
+        Dimitris Isaris Experiences, deneyimin organizatörü olarak hareket eder
+        ve özenle seçilmiş yerel tedarikçilerle çalışır.
+      </p>
+      <p>
+        Misafirlerin güvenliğini ve keyfini sağlamak için her makul çaba
+        gösterilmekle birlikte; hava koşulları, havayolu gecikmeleri, hükümet
+        eylemleri, doğal olaylar ya da bağımsız üçüncü taraf sağlayıcıların eylem
+        veya ihmalleri dahil ancak bunlarla sınırlı olmamak üzere, makul
+        kontrolümüz dışındaki olaylardan sorumluluk kabul edemeyiz.
+      </p>
+
+      <h2>10. Mücbir Sebep</h2>
+      <p>
+        Hiçbir taraf; doğal afetler, ağır hava koşulları, hükümet kısıtlamaları,
+        savaş, salgın hastalıklar, ulaşım aksaklıkları veya diğer mücbir sebep
+        olayları dahil olmak üzere makul kontrol dışındaki durumlardan kaynaklanan
+        yükümlülüklerin yerine getirilmemesinden veya gecikmesinden sorumlu
+        tutulamaz.
+      </p>
+
+      <h2>11. Geçerli Hukuk</h2>
+      <p>
+        Bu Şartlar ve Koşullar, zorunlu yerel tüketici koruma yasalarının aksini
+        gerektirdiği durumlar dışında, Aurelian Experiences FZE için geçerli olan
+        yasalara tabidir.
+      </p>
+
+      <h2>12. Kabul</h2>
+      <p>
+        Rezervasyonunuzu tamamlayarak bu Rezervasyon Şartlar ve Koşullarını
+        okuduğunuzu, anladığınızı ve kabul ettiğinizi beyan edersiniz.
+      </p>
+      <p>
+        Sizi Kapadokya'da ağırlamayı ve unutulmaz bir yolculuğu birlikte
+        paylaşmayı dört gözle bekliyoruz.
+      </p>
+
+      <p className="legal__sign">
+        Dimitris Isaris
+        <span>Kurucu</span>
+        <span>Dimitris Isaris Experiences</span>
+      </p>
+    </>
+  );
+}
+
+export default function TermsAndConditions() {
+  const { lang } = useLang();
+  const title =
+    lang === "tr" ? "Rezervasyon Şartlar ve Koşulları" : "Booking Terms & Conditions";
+  return (
+    <LegalPage title={title} updated={UPDATED}>
+      {lang === "tr" ? <BodyTR /> : <BodyEN />}
     </LegalPage>
   );
 }

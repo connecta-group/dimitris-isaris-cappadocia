@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { track } from "../lib/pixel";
-import { AVAILABILITY_LABEL, BOOKING_LINK, PRICE } from "../config";
+import { useLang } from "../i18n/LanguageProvider";
+import { BOOKING_LINK, PRICE } from "../config";
 
 export default function BookBar() {
+  const { t } = useLang();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export default function BookBar() {
     <div className={`book-bar ${show ? "is-in" : ""}`} aria-hidden={!show}>
       <div className="book-bar__price">
         <b>{PRICE}</b>
-        <span>{AVAILABILITY_LABEL}</span>
+        <span>{t.availability.label}</span>
       </div>
       <a
         className="btn"
@@ -30,7 +32,7 @@ export default function BookBar() {
         tabIndex={show ? 0 : -1}
         onClick={() => track("InitiateCheckout")}
       >
-        Reserve your place
+        {t.bookBar.reserve}
       </a>
     </div>
   );

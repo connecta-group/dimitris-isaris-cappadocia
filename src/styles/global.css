@@ -546,6 +546,122 @@ ol {
   transform: translateY(-3.75px) rotate(-45deg);
 }
 
+/* Language selector — compact dropdown in the bar (all widths) */
+.nav__lang {
+  display: inline-flex;
+  align-items: center;
+}
+
+.lang {
+  position: relative;
+}
+
+.lang__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.7rem;
+  font-family: var(--util);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--on-dark-mute);
+  border: 1px solid var(--line-dark);
+  border-radius: 999px;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.lang__toggle:hover,
+.lang__toggle[aria-expanded="true"] {
+  color: var(--on-dark);
+  border-color: rgba(242, 235, 225, 0.34);
+}
+
+.lang__chevron {
+  transition: transform 0.3s var(--ease);
+}
+
+.lang__toggle[aria-expanded="true"] .lang__chevron {
+  transform: rotate(180deg);
+}
+
+.lang__menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 140px;
+  padding: 0.4rem;
+  background: rgba(23, 17, 14, 0.96);
+  backdrop-filter: saturate(150%) blur(18px);
+  -webkit-backdrop-filter: saturate(150%) blur(18px);
+  border: 1px solid var(--line-dark);
+  border-radius: 12px;
+  display: grid;
+  gap: 0.15rem;
+  z-index: 60;
+  animation: langMenuIn 0.28s var(--ease-out) both;
+}
+
+@keyframes langMenuIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lang__option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  font-family: var(--util);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--on-dark-mute);
+  border-radius: 8px;
+  transition: background 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+.lang__option:hover {
+  background: rgba(242, 235, 225, 0.08);
+  color: var(--on-dark);
+}
+
+.lang__option.is-active {
+  color: var(--brass);
+}
+
+/* Segmented control inside the mobile drawer */
+.drawer__lang {
+  margin-top: auto;
+  padding: 1.4rem 0 0.4rem;
+}
+
+.langseg {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.langseg__btn {
+  flex: 1;
+  padding: 0.85rem 1rem;
+  font-family: var(--util);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-dark-mute);
+  border: 1px solid var(--line-dark);
+  border-radius: 999px;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease),
+    background 0.3s var(--ease);
+}
+
+.langseg__btn.is-active {
+  color: var(--ink);
+  background: var(--tuff);
+  border-color: var(--tuff);
+}
+
 /* Mobile drawer */
 .drawer {
   position: fixed;

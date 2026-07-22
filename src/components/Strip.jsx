@@ -1,15 +1,8 @@
-const STRIP = [
-  "Göreme Open Air Museum",
-  "Paşabağ Monks Valley",
-  "Devrent Imagination Valley",
-  "Avanos pottery",
-  "Sunrise balloons",
-  "Private acoustic night",
-  "Rose Valley at golden hour",
-];
+import { useLang } from "../i18n/LanguageProvider";
 
 export default function Strip() {
-  const items = [...STRIP, ...STRIP];
+  const { t } = useLang();
+  const items = [...t.strip, ...t.strip];
   return (
     <div className="strip" aria-hidden="true">
       <div className="strip__track">

@@ -1,32 +1,26 @@
 import Icon from "./Icon";
-import {
-  AIRPORTS,
-  GOOGLE_MAPS,
-  GOOGLE_MAPS_EMBED,
-  HOTELS,
-  LOCATION_BASE,
-} from "../config";
+import { useLang } from "../i18n/LanguageProvider";
+import { GOOGLE_MAPS, GOOGLE_MAPS_EMBED } from "../config";
 
 export default function Location() {
+  const { t } = useLang();
   return (
     <section className="section section--dusk" id="location">
       <div className="shell">
         <div className="section-head section-head--split">
-          <p className="eyebrow reveal">Getting there</p>
+          <p className="eyebrow reveal">{t.location.eyebrow}</p>
           <h2 className="section-title reveal">
-            Cappadocia, in the heart of the <em>valleys</em>.
+            {t.location.titleTop} <em>{t.location.titleEm}</em>.
           </h2>
           <p className="lede reveal" data-delay="1">
-            Nevşehir Kapadokya Airport is the recommended arrival airport for
-            this experience. Send us your flight number and a driver will be
-            waiting in arrivals with your name.
+            {t.location.lede}
           </p>
         </div>
 
         <div className="location__grid">
           <div className="map reveal">
             <iframe
-              title="Map of Ürgüp, Cappadocia, Türkiye"
+              title={t.location.mapTitle}
               src={GOOGLE_MAPS_EMBED}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -39,14 +33,14 @@ export default function Location() {
               rel="noopener noreferrer"
             >
               <Icon name="pin" size={16} />
-              Open in Google Maps
+              {t.cta.openMaps}
             </a>
           </div>
 
           <div className="travel reveal" data-delay="1">
             <div className="travel__group">
-              <h3>Recommended airport</h3>
-              {AIRPORTS.map((a) => (
+              <h3>{t.location.airportsHeading}</h3>
+              {t.location.airports.map((a) => (
                 <div className="travel__item" key={a.code}>
                   <div className="travel__top">
                     <span className="travel__code">{a.code}</span>
@@ -59,8 +53,8 @@ export default function Location() {
             </div>
 
             <div className="travel__group">
-              <h3>Where you stay</h3>
-              {HOTELS.map((h) => (
+              <h3>{t.location.stayHeading}</h3>
+              {t.location.hotels.map((h) => (
                 <div className="travel__item" key={h.name}>
                   <div className="travel__top">
                     <span className="travel__name">{h.name}</span>
@@ -69,10 +63,8 @@ export default function Location() {
                 </div>
               ))}
               <div className="travel__item">
-                <p className="travel__dist">{LOCATION_BASE}</p>
-                <p className="travel__note">
-                  Three nights in Ürgüp. No hotel changes during the programme.
-                </p>
+                <p className="travel__dist">{t.location.base}</p>
+                <p className="travel__note">{t.location.baseNote}</p>
               </div>
             </div>
           </div>

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Icon from "./Icon";
-import { PROGRAM } from "../data";
 import { trackCustom } from "../lib/pixel";
+import { useLang } from "../i18n/LanguageProvider";
 import { PROGRAMME_FILENAME, PROGRAMME_IMAGE } from "../config";
 
-function Day({ day, open, onToggle }) {
+function Day({ day, badge, open, onToggle }) {
   const panelId = `day-panel-${day.day}`;
   const headId = `day-head-${day.day}`;
 
@@ -20,7 +20,7 @@ function Day({ day, open, onToggle }) {
         >
           <span className="day__n">{day.day}</span>
           <span className="day__titles">
-            {day.featured && <span className="day__badge">The main event</span>}
+            {day.featured && <span className="day__badge">{badge}</span>}
             <span
               style={{
                 display: "block",
@@ -74,27 +74,28 @@ function Day({ day, open, onToggle }) {
 }
 
 export default function Program() {
+  const { t } = useLang();
   const [open, setOpen] = useState("03");
 
   return (
     <section className="section section--dark" id="program">
       <div className="shell">
         <div className="section-head section-head--split">
-          <p className="eyebrow reveal">The programme</p>
+          <p className="eyebrow reveal">{t.program.eyebrow}</p>
           <h2 className="section-title reveal">
-            Day by day, <em>hour by hour</em>.
+            {t.program.titleTop} <em>{t.program.titleEm}</em>.
           </h2>
           <p className="lede reveal" data-delay="1">
-            Open any day to see what is planned. Timings move with the weather —
-            the balloon corridor and the valley light decide, not the schedule.
+            {t.program.lede}
           </p>
         </div>
 
         <div className="program__list reveal">
-          {PROGRAM.map((d) => (
+          {t.program.days.map((d) => (
             <Day
               key={d.day}
               day={d}
+              badge={t.program.badge}
               open={open === d.day}
               onToggle={() => setOpen(open === d.day ? null : d.day)}
             />
@@ -110,7 +111,7 @@ export default function Program() {
             onClick={() => trackCustom("DownloadBrochure")}
           >
             <Icon name="download" size={17} />
-            Download Brochure
+            {t.cta.downloadBrochure}
           </a>
         </div>
       </div>

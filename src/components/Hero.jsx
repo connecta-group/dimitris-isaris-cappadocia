@@ -2,9 +2,8 @@ import { Fragment } from "react";
 import Icon from "./Icon";
 import useCountdown from "../hooks/useCountdown";
 import { track, trackCustom } from "../lib/pixel";
+import { useLang } from "../i18n/LanguageProvider";
 import {
-  AVAILABILITY_LABEL,
-  AVAILABILITY_NOTE,
   BOOKING_LINK,
   EVENT_DATE,
   EVENT_DATE_ISO,
@@ -16,21 +15,22 @@ import {
 } from "../config";
 
 function Countdown() {
+  const { t: tr } = useLang();
   const t = useCountdown(EVENT_DATE_ISO);
 
   if (t.done) {
-    return <p className="countdown__done">The experience has begun.</p>;
+    return <p className="countdown__done">{tr.countdown.done}</p>;
   }
 
   const units = [
-    { v: t.days, l: "Days" },
-    { v: t.hours, l: "Hours" },
-    { v: t.minutes, l: "Minutes" },
-    { v: t.seconds, l: "Seconds" },
+    { v: t.days, l: tr.countdown.days },
+    { v: t.hours, l: tr.countdown.hours },
+    { v: t.minutes, l: tr.countdown.minutes },
+    { v: t.seconds, l: tr.countdown.seconds },
   ];
 
   return (
-    <div className="countdown" role="timer" aria-label="Time until the experience begins">
+    <div className="countdown" role="timer" aria-label={tr.countdown.aria}>
       {units.map((u, i) => (
         <Fragment key={u.l}>
           <div className="countdown__unit">
@@ -49,16 +49,17 @@ function Countdown() {
 }
 
 export default function Hero() {
+  const { t } = useLang();
   return (
     <section className="hero" id="top">
       {/* LEFT — solid dark panel. All copy, actions and countdown live here. */}
       <div className="hero__left">
         <div className="hero__inner">
-        <p className="hero__eyebrow">Exclusive Event</p>
+        <p className="hero__eyebrow">{t.hero.eyebrow}</p>
 
         <h1 className="hero__title display">
-          Where Music Meets Cappadocia
-          <em>Imagine Yourself Here.</em>
+          {t.hero.titleTop}
+          <em>{t.hero.titleEm}</em>
         </h1>
 
         <div className="hero__meta">
@@ -69,14 +70,9 @@ export default function Hero() {
           <span>{LOCATION_LABEL}</span>
         </div>
 
-        <p className="hero__blurb">
-          Four unforgettable days. One intimate concert. Endless memories.
-        </p>
+        <p className="hero__blurb">{t.hero.blurb1}</p>
 
-        <p className="hero__blurb">
-          Discover hidden valleys, breathtaking sunrises and an exclusive live
-          acoustic evening with Dimitris Isaris.
-        </p>
+        <p className="hero__blurb">{t.hero.blurb2}</p>
 
         <div className="hero__actions">
           <a
@@ -84,7 +80,7 @@ export default function Hero() {
             href={BOOKING_LINK}
             onClick={() => track("InitiateCheckout")}
           >
-            Reserve your place
+            {t.cta.reserve}
           </a>
           <a
             className="btn btn--ghost-light"
@@ -94,7 +90,7 @@ export default function Hero() {
             onClick={() => trackCustom("DownloadBrochure")}
           >
             <Icon name="download" size={17} />
-            Download Brochure
+            {t.cta.downloadBrochure}
           </a>
           <a
             className="btn btn--bare"
@@ -104,7 +100,7 @@ export default function Hero() {
             onClick={() => trackCustom("WatchFilm")}
           >
             <Icon name="play" size={17} />
-            Watch the film
+            {t.cta.watchFilm}
           </a>
         </div>
 
@@ -113,14 +109,14 @@ export default function Hero() {
           <p className="availability">
             <span className="dot-pulse" aria-hidden="true" />
             <span className="availability__text">
-              <b>{AVAILABILITY_LABEL}</b>
-              <i>{AVAILABILITY_NOTE}</i>
+              <b>{t.availability.label}</b>
+              <i>{t.availability.note}</i>
             </span>
           </p>
         </div>
 
-        <a className="scroll-cue" href="#program" aria-label="Scroll to the programme">
-          Scroll
+        <a className="scroll-cue" href="#program" aria-label={t.hero.scrollAria}>
+          {t.hero.scroll}
           <span className="scroll-cue__rail" aria-hidden="true" />
         </a>
         </div>
@@ -132,7 +128,7 @@ export default function Hero() {
           <source srcSet="/dimitris-hero.webp" type="image/webp" />
           <img
             src="/dimitris-hero.jpg"
-            alt="Dimitris Isaris playing classical guitar on a terrace as hot air balloons rise over the Cappadocia valley at sunrise"
+            alt={t.hero.heroAlt}
             width="1920"
             height="1078"
             loading="eager"

@@ -1,11 +1,12 @@
 import LegalPage from "../components/LegalPage";
+import { useLang } from "../i18n/LanguageProvider";
 import { EMAIL } from "../config";
 
 const UPDATED = "18 July 2026";
 
-export default function PrivacyPolicy() {
+function BodyEN() {
   return (
-    <LegalPage title="Privacy Policy" updated={UPDATED}>
+    <>
       <p className="legal__lede">
         This policy explains what personal data this website collects, why it is
         processed, and the rights you have over it. It covers the reservation
@@ -180,6 +181,197 @@ export default function PrivacyPolicy() {
       <p>
         <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
       </p>
+    </>
+  );
+}
+
+function BodyTR() {
+  return (
+    <>
+      <p className="legal__lede">
+        Bu politika, bu web sitesinin hangi kişisel verileri topladığını, bunların
+        neden işlendiğini ve bu veriler üzerindeki haklarınızı açıklar. Yalnızca
+        rezervasyon talep formunu kapsar — bu sitede hesap sistemi, reklam ağı
+        veya ziyaretçi takibi yoktur.
+      </p>
+
+      <p className="legal__placeholder">
+        [DOĞRULANACAK YASAL KURULUŞ ADI], aşağıda açıklanan işleme faaliyetinin
+        veri sorumlusudur. [DOĞRULANACAK TESCİLLİ İŞ ADRESİ].
+      </p>
+
+      <h2>1. Neleri topluyoruz</h2>
+      <p>
+        Bu web sitesindeki rezervasyon formu yalnızca sizin doldurduğunuz alanları
+        toplar:
+      </p>
+      <ul>
+        <li>Ad</li>
+        <li>Soyad</li>
+        <li>E-posta adresi</li>
+        <li>Telefon numarası</li>
+        <li>Ülke</li>
+        <li>Misafir sayısı</li>
+        <li>Özel istekler — serbest metin alanı</li>
+      </ul>
+      <p>
+        Özel istekler alanı isteğe bağlı ve serbest biçimlidir. Buraya beslenme,
+        sağlık, erişilebilirlik veya diğer hassas ayrıntıları girmeyi seçerseniz,
+        bunlar yalnızca katılımınızı düzenlemek için işlenir. Lütfen yalnızca size
+        yardımcı olmamız için gerekli olanı paylaşın.
+      </p>
+      <p>
+        Ödeme kartı bilgilerinizi istemiyoruz ve talep etmiyoruz. Bu web sitesi
+        üzerinden hiçbir ödeme alınmaz.
+      </p>
+
+      <h2>2. Neden işliyoruz</h2>
+      <ul>
+        <li>
+          Rezervasyon talebinize yanıt vermek ve yer olup olmadığını size
+          bildirmek için.
+        </li>
+        <li>
+          Talebinizle ilgili rezervasyon ve onay e-postalarını size göndermek
+          için.
+        </li>
+        <li>
+          Deneyimin pratik ayrıntılarını — transferler, konaklama, grup sayıları
+          ve bize bildirdiğiniz gereksinimleri — düzenlemek için.
+        </li>
+      </ul>
+      <p>
+        Ayrıca bültene abone olmadığınız sürece bilgilerinizi pazarlama için
+        kullanmayız ve reklam amacıyla satmaz veya paylaşmayız.
+      </p>
+
+      <h2>3. Hukuki dayanak</h2>
+      <p>
+        GDPR'ın uygulandığı durumlarda aşağıdaki dayanaklara güveniriz.
+        Rezervasyon talebinizin ve onu izleyen yazışmaların işlenmesi, bir sözleşme
+        yapılmadan önce talebiniz üzerine adım atmak ve rezervasyon yapmaya devam
+        etmeniz halinde bu sözleşmeyi yerine getirmek amacıyla gerçekleştirilir.
+        Muhasebe veya uyuşmazlık amacıyla kayıt tutulması meşru menfaatlerimize
+        dayanır. Özel istekler alanında gönüllü olarak paylaştığınız ve sağlık
+        verisi niteliğindeki her şey, istediğiniz zaman geri çekebileceğiniz açık
+        rızanıza dayanılarak işlenir.
+      </p>
+
+      <h2>4. Gönderimler nasıl ele alınır</h2>
+      <p>
+        Form, web sitesi barındırıcımız Netlify tarafından sağlanan form işleme
+        hizmeti olan Netlify Forms'a gönderilir. Gönderiminiz, sitenin Netlify
+        hesabında saklanır ve yanıt verebilmemiz için bize e-posta ile bildirilir.
+        Netlify, bizim adımıza bir veri işleyen olarak hareket eder ve altyapısı
+        Amerika Birleşik Devletleri'nde bulunur.
+      </p>
+      <p className="legal__placeholder">
+        [SİTE SAHİBİNE NOT — YAYINLANMADAN ÖNCE DOĞRULANACAK: bu bölüm, web
+        sitesinin şu anda kullandığı sistem olduğu için Netlify Forms'u
+        açıklamaktadır. Rezervasyon verileri daha sonra Google E-Tablolar ve
+        Google Apps Script'e veya başka bir sisteme taşınırsa, bu politika
+        yayınlanmadan önce bu bölüm ve 8. bölüm gerçek veri işleyeni belirtecek
+        şekilde yeniden yazılmalıdır.]
+      </p>
+
+      <h2>5. Verilerinize kimler erişebilir</h2>
+      <p>
+        Erişim; talebinizi yanıtlamak ve geziyi yürütmek için bilgiye ihtiyaç
+        duyan, bu deneyimi düzenleyen kişilerle ve bu politikada adı geçen,
+        talimatlarımızla hareket eden hizmet sağlayıcılarla sınırlıdır. Bir
+        ayrıntının bir tedarikçiye iletilmesi gerektiğinde — örneğin bir otel oda
+        listesi veya transfer manifestosu — yalnızca gereken asgari bilgi
+        paylaşılır.
+      </p>
+      <p className="legal__placeholder">
+        [DOĞRULANACAK TEDARİKÇİ LİSTESİ VE SÖZLEŞMESEL DÜZENLEMELER]
+      </p>
+
+      <h2>6. Verileri ne kadar süre saklıyoruz</h2>
+      <p className="legal__placeholder">
+        [DOĞRULANACAK SAKLAMA SÜRESİ]. Amacımız, rezervasyon taleplerini yalnızca
+        yanıtlamak ve rezervasyonunu yaptığınız deneyimi yürütmek için gereken
+        süre boyunca, muhasebe veya yasal yükümlülükler için gereken süreyle
+        birlikte saklamak ve ardından silmektir. Kesin süreler bu politika
+        yayınlanmadan önce doğrulanmalıdır.
+      </p>
+
+      <h2>7. Güvenlik</h2>
+      <p>
+        Web sitesi HTTPS üzerinden sunulur; dolayısıyla forma yazdıklarınız aktarım
+        sırasında şifrelenir. Saklanan gönderimlere erişim, organizatörlere ait
+        hesaplarla sınırlıdır ve yukarıda açıklanan hizmetlerin kimlik doğrulama
+        kontrolleriyle korunur. Hiçbir aktarım veya saklama yöntemi tümüyle
+        güvenli değildir ve mutlak güvenliği garanti edemeyiz.
+      </p>
+
+      <h2>8. Uluslararası aktarımlar</h2>
+      <p>
+        Netlify, verileri Amerika Birleşik Devletleri'ndeki altyapıda işler;
+        dolayısıyla Avrupa Ekonomik Alanı'ndan veya Birleşik Krallık'tan yapılan
+        bir gönderim, bu bölgenin dışına aktarılır. Bu tür aktarımlar,
+        sağlayıcının sunduğu güvencelere — tipik olarak Avrupa Komisyonu'nun
+        standart sözleşme maddelerine — dayanır.
+      </p>
+      <p>
+        Bu site ayrıca yazı tiplerini Google Fonts'tan yükler. Bir sayfa
+        yüklendiğinde tarayıcınız bu dosyaları Google'ın sunucularından ister; bu
+        da IP adresinizin Google tarafından görülebileceği anlamına gelir. Bununla
+        hiçbir çerez ayarlanmaz ve hesap gerekmez.
+      </p>
+
+      <h2>9. Çerezler</h2>
+      <p>
+        Bu web sitesi hiçbir çerez ayarlamaz ve tarayıcınızın yerel depolamasında
+        hiçbir şey saklamaz. Kurulu hiçbir analiz, reklam veya takip teknolojisi
+        yoktur. Ayrıntıların tamamı için Çerez Politikası'na bakın.
+      </p>
+
+      <h2>10. Haklarınız</h2>
+      <p>
+        GDPR veya benzeri bir yasanın uygulandığı durumlarda; hakkınızda tuttuğumuz
+        kişisel verilerin bir kopyasını isteme, yanlış verilerin düzeltilmesini
+        sağlama, verilerinizin silinmesini isteme, işlenme biçimini kısıtlama veya
+        buna itiraz etme, verileri taşınabilir bir biçimde alma ve verdiğiniz
+        herhangi bir rızayı geri çekme hakkına sahipsiniz. Ayrıca ulusal veri
+        koruma otoritenize şikâyette bulunma hakkınız da vardır.
+      </p>
+
+      <h2>11. Haklarınızı nasıl kullanırsınız</h2>
+      <p>
+        Ne yapmamızı istediğinizi belirterek <a href={`mailto:${EMAIL}`}>{EMAIL}</a>{" "}
+        adresine yazın. Bir ay içinde yanıt vereceğiz. Bir talep üzerine işlem
+        yapmadan önce kimliğinizi doğrulamak için bir iki soru sormamız
+        gerekebilir.
+      </p>
+
+      <h2>12. Çocuklar</h2>
+      <p>
+        Bu deneyim yetişkinler için düzenlenmiştir. Bu web sitesi aracılığıyla
+        bilerek çocuklardan veri toplamayız. Bir reşit olmayanı içeren
+        rezervasyonlar, sorumlu yetişkin tarafından yapılır.
+      </p>
+
+      <h2>13. Değişiklikler</h2>
+      <p>
+        Bu politika değişirse, gözden geçirilmiş sürüm bu sayfada yeni bir "son
+        güncelleme" tarihiyle görünecektir.
+      </p>
+
+      <h2>14. İletişim</h2>
+      <p>
+        <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+      </p>
+    </>
+  );
+}
+
+export default function PrivacyPolicy() {
+  const { lang } = useLang();
+  const title = lang === "tr" ? "Gizlilik Politikası" : "Privacy Policy";
+  return (
+    <LegalPage title={title} updated={UPDATED}>
+      {lang === "tr" ? <BodyTR /> : <BodyEN />}
     </LegalPage>
   );
 }

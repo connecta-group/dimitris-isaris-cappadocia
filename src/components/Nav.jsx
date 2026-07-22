@@ -1,18 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { track } from "../lib/pixel";
+import { useLang } from "../i18n/LanguageProvider";
+import LanguageSelector from "./LanguageSelector";
 import { BOOKING_LINK, EMAIL, PHONE, PHONE_RAW } from "../config";
 
-const LINKS = [
-  { id: "program", label: "Programme" },
-  { id: "gallery", label: "Gallery" },
-  { id: "services", label: "Included" },
-  { id: "location", label: "Location" },
-  { id: "artist", label: "Dimitris" },
-  { id: "faq", label: "Questions" },
-  { id: "contact", label: "Contact" },
-];
-
 export default function Nav() {
+  const { t } = useLang();
+  const LINKS = t.nav.links;
   const [stuck, setStuck] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
@@ -63,11 +57,11 @@ export default function Nav() {
       >
         <div className="nav__inner">
           <a className="nav__brand" href="#top" onClick={() => setOpen(false)}>
-            <span>Exclusive Event</span>
+            <span>{t.nav.brandTag}</span>
             Dimitris Isaris
           </a>
 
-          <nav className="nav__links" aria-label="Sections">
+          <nav className="nav__links" aria-label={t.nav.sections}>
             {LINKS.map((l) => (
               <a
                 key={l.id}
@@ -79,19 +73,23 @@ export default function Nav() {
             ))}
           </nav>
 
+          <div className="nav__lang">
+            <LanguageSelector variant="bar" />
+          </div>
+
           <a
             className="btn nav__cta"
             href={BOOKING_LINK}
             onClick={() => track("InitiateCheckout")}
           >
-            Reserve your place
+            {t.nav.reserve}
           </a>
 
           <button
             className={`nav__burger ${open ? "is-open" : ""}`}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
             onClick={() => setOpen((v) => !v)}
           >
             <span />
@@ -129,10 +127,14 @@ export default function Nav() {
               tabIndex={open ? 0 : -1}
             >
               <i>{String(LINKS.length + 1).padStart(2, "0")}</i>
-              Reserve your place
+              {t.nav.reserve}
             </a>
           </li>
         </ul>
+
+        <div className="drawer__lang">
+          <LanguageSelector variant="menu" tabIndex={open ? 0 : -1} />
+        </div>
 
         <div className="drawer__foot">
           <a href={`mailto:${EMAIL}`} tabIndex={open ? 0 : -1}>
