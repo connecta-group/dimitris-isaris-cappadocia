@@ -8,11 +8,15 @@
 export const EVENT_NAME = "Dimitris Isaris — A Cappadocia Experience";
 export const EVENT_SUBTITLE = "A Cappadocia Experience";
 export const EVENT_EYEBROW = "Exclusive Event";
-export const EVENT_DATE = "24–27 September";
+export const EVENT_DATE = "25–28 September";
 export const EVENT_DURATION = "3 Nights · 4 Days";
 
-/** ISO date used by the countdown timer. Format: YYYY-MM-DDTHH:mm:ss */
-export const EVENT_DATE_ISO = "2026-09-24T15:00:00";
+/**
+ * Start instant used by the countdown timer. The +03:00 offset pins it to
+ * Türkiye time (TRT, no DST), so the countdown targets the same moment for
+ * every visitor regardless of their own timezone. 25 September 2026, 15:00 TRT.
+ */
+export const EVENT_DATE_ISO = "2026-09-25T15:00:00+03:00";
 
 export const EMAIL = "contact@dimitrisisaris.com";
 export const PHONE = "+90 543 151 63 39";
@@ -34,7 +38,8 @@ export const GOOGLE_MAPS_EMBED =
  * belongs in the frontend.
  */
 export const STRIPE_PAYMENT_LINK =
-  import.meta.env.VITE_STRIPE_PAYMENT_LINK || "";
+  import.meta.env.VITE_STRIPE_PAYMENT_LINK ||
+  "https://buy.stripe.com/8x2dR9cblfm8awe7kj5wI03";
 export const HAS_STRIPE_LINK = Boolean(STRIPE_PAYMENT_LINK);
 
 /** Every booking CTA points at Stripe once the link is configured. */

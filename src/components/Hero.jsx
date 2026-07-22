@@ -88,7 +88,7 @@ export default function Hero() {
             type="image/jpeg"
           >
             <Icon name="download" size={17} />
-            Download programme
+            Download Brochure
           </a>
           <a
             className="btn btn--bare"

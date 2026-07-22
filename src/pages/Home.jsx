@@ -15,7 +15,7 @@ import BookBar from "../components/BookBar";
 import useReveal from "../hooks/useReveal";
 
 const TITLE =
-  "Dimitris Isaris — A Cappadocia Experience | 24–27 September";
+  "Dimitris Isaris — A Cappadocia Experience | 25–28 September";
 
 export default function Home() {
   useReveal();

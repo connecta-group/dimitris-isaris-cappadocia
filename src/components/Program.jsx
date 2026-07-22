@@ -108,7 +108,7 @@ export default function Program() {
             type="image/jpeg"
           >
             <Icon name="download" size={17} />
-            Download the full programme
+            Download Brochure
           </a>
         </div>
       </div>
