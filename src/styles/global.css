@@ -2108,6 +2108,99 @@ ol {
   transform: none;
 }
 
+/* Two payment options: side by side on desktop, stacked on mobile. */
+.booking__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-bottom: 1.4rem;
+}
+
+.booking__option {
+  flex: 1 1 210px;
+  min-width: 0;
+  background: var(--paper);
+  padding: clamp(1.3rem, 2.4vw, 1.7rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.booking__option-title {
+  font-family: var(--util);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.booking__option-price {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--step-2);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.booking__option-desc {
+  font-size: var(--step--1);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-mute);
+  flex: 1 1 auto;
+}
+
+.booking__option-cta {
+  margin-top: 0.4rem;
+}
+
+.booking__info {
+  margin-top: 1.4rem;
+  padding: 1.1rem 1.25rem;
+  border-left: 2px solid var(--brass);
+  background: rgba(199, 154, 78, 0.08);
+}
+
+.booking__info-title {
+  font-family: var(--util);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+}
+
+.booking__info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.booking__info li {
+  position: relative;
+  padding-left: 1.15rem;
+  font-size: var(--step--1);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-mute);
+}
+
+.booking__info li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brass);
+}
+
 .booking__config {
   padding: 0.9rem 1.1rem;
   border-left: 2px solid var(--brass);

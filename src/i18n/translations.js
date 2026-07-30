@@ -226,10 +226,30 @@ export const translations = {
       datesLabel: "Dates",
       durationLabel: "Duration",
       cta: "Reserve & Pay Securely",
+      options: [
+        {
+          title: "Full Payment",
+          price: "€849",
+          desc: "Secure your place with one complete payment.",
+          cta: "Pay in Full",
+        },
+        {
+          title: "Pay in 2 Instalments",
+          price: "€425 today",
+          desc: "Pay €425 today and the remaining €424 by 1 September 2026.",
+          cta: "Pay First Instalment",
+        },
+      ],
       configNote1: "Online booking is not available yet — the payment link has not been configured. Please write to",
       configNote2: "and we will arrange your place directly.",
       secure: "Payment is processed by Stripe. Card details are never entered on this website.",
-      after: "After completing your payment, you will receive a Stripe payment confirmation. Our team will then contact you with the final booking confirmation and travel details.",
+      infoTitle: "Payment Information",
+      info: [
+        "The total event price remains €849.",
+        "Your reservation is confirmed after receiving the first payment of €425.",
+        "The remaining balance of €424 must be paid no later than 1 September 2026.",
+        "Once the first payment has been completed, our team will contact the guest with the final payment details.",
+      ],
       contactPre: "Questions before booking?",
     },
 
@@ -494,10 +514,30 @@ export const translations = {
       datesLabel: "Tarihler",
       durationLabel: "Süre",
       cta: "Güvenle Ayırtın ve Ödeyin",
+      options: [
+        {
+          title: "Tek Seferde Ödeme",
+          price: "€849",
+          desc: "Yerinizi tek ödeme ile ayırtın.",
+          cta: "Tek Seferde Öde",
+        },
+        {
+          title: "2 Taksitte Ödeme",
+          price: "Bugün €425",
+          desc: "Bugün €425 ödeyin, kalan €424 tutarını en geç 1 Eylül 2026 tarihine kadar tamamlayın.",
+          cta: "İlk Taksiti Öde",
+        },
+      ],
       configNote1: "Çevrimiçi rezervasyon henüz kullanılamıyor — ödeme bağlantısı yapılandırılmadı. Lütfen şu adrese yazın:",
       configNote2: "yerinizi doğrudan ayarlayalım.",
       secure: "Ödeme Stripe tarafından işlenir. Kart bilgileri bu web sitesine asla girilmez.",
-      after: "Ödemenizi tamamladıktan sonra bir Stripe ödeme onayı alacaksınız. Ekibimiz daha sonra nihai rezervasyon onayı ve seyahat ayrıntılarıyla sizinle iletişime geçecek.",
+      infoTitle: "Ödeme Bilgisi",
+      info: [
+        "Etkinliğin toplam ücreti €849'dur.",
+        "Rezervasyonunuz €425 tutarındaki ilk ödemenin alınmasıyla onaylanır.",
+        "Kalan €424 tutarın en geç 1 Eylül 2026 tarihine kadar ödenmesi gerekmektedir.",
+        "İlk ödemeniz tamamlandıktan sonra ekibimiz son ödeme bilgileriyle sizinle iletişime geçecektir.",
+      ],
       contactPre: "Rezervasyondan önce sorularınız mı var?",
     },
 

@@ -43,6 +43,13 @@ export const GOOGLE_MAPS_EMBED =
 export const STRIPE_PAYMENT_LINK =
   import.meta.env.VITE_STRIPE_PAYMENT_LINK ||
   "https://buy.stripe.com/8x2dR9cblfm8awe7kj5wI03";
+/**
+ * Second payment option — the first of two instalments (€425 today,
+ * €424 by 1 September 2026). Set VITE_STRIPE_INSTALMENT_LINK to override.
+ */
+export const STRIPE_INSTALMENT_LINK =
+  import.meta.env.VITE_STRIPE_INSTALMENT_LINK ||
+  "https://buy.stripe.com/eVq3cvdfp1vi6fYgUT5wI04";
 export const HAS_STRIPE_LINK = Boolean(STRIPE_PAYMENT_LINK);
 
 /** Every booking CTA points at Stripe once the link is configured. */
@@ -125,6 +132,7 @@ export default {
   GOOGLE_MAPS,
   GOOGLE_MAPS_EMBED,
   STRIPE_PAYMENT_LINK,
+  STRIPE_INSTALMENT_LINK,
   HAS_STRIPE_LINK,
   BOOKING_LINK,
   PROGRAMME_IMAGE,

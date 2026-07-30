@@ -9,7 +9,11 @@ import {
   PRICE,
   PRICE_NOTE,
   STRIPE_PAYMENT_LINK,
+  STRIPE_INSTALMENT_LINK,
 } from "../config";
+
+/** Payment options map to their Stripe links by index (full, then instalment). */
+const PAYMENT_LINKS = [STRIPE_PAYMENT_LINK, STRIPE_INSTALMENT_LINK];
 
 export default function Reservation() {
   const { t } = useLang();
@@ -53,13 +57,38 @@ export default function Reservation() {
 
           <div className="booking__action">
             {HAS_STRIPE_LINK ? (
-              <a
-                className="btn btn--block booking__cta"
-                href={STRIPE_PAYMENT_LINK}
-                onClick={() => track("InitiateCheckout")}
-              >
-                {t.booking.cta}
-              </a>
+              <>
+                <div className="booking__options">
+                  {t.booking.options.map((opt, i) => (
+                    <div className="booking__option" key={i}>
+                      <p className="booking__option-title">{opt.title}</p>
+                      <p className="booking__option-price">{opt.price}</p>
+                      <p className="booking__option-desc">{opt.desc}</p>
+                      <a
+                        className="btn btn--block booking__option-cta"
+                        href={PAYMENT_LINKS[i]}
+                        onClick={() => track("InitiateCheckout")}
+                      >
+                        {opt.cta}
+                      </a>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="booking__secure">
+                  <Icon name="star" size={15} aria-hidden="true" />
+                  {t.booking.secure}
+                </p>
+
+                <div className="booking__info">
+                  <p className="booking__info-title">{t.booking.infoTitle}</p>
+                  <ul>
+                    {t.booking.info.map((line, i) => (
+                      <li key={i}>{line}</li>
+                    ))}
+                  </ul>
+                </div>
+              </>
             ) : (
               <>
                 <button
@@ -76,15 +105,6 @@ export default function Reservation() {
                 </p>
               </>
             )}
-
-            <p className="booking__secure">
-              <Icon name="star" size={15} aria-hidden="true" />
-              {t.booking.secure}
-            </p>
-
-            <p className="booking__after">
-              {t.booking.after}
-            </p>
 
             <p className="booking__contact">
               {t.booking.contactPre}
