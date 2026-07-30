@@ -1,7 +1,5 @@
 import Icon from "./Icon";
-import { track } from "../lib/pixel";
 import { useLang } from "../i18n/LanguageProvider";
-import { BOOKING_LINK, PRICE, PRICE_NOTE } from "../config";
 
 export default function Services() {
   const { t } = useLang();
@@ -30,25 +28,6 @@ export default function Services() {
               <p>{s.body}</p>
             </article>
           ))}
-        </div>
-
-        <div className="price-bar reveal">
-          <div>
-            <p className="price-bar__figure">{PRICE}</p>
-            <p className="price-bar__note">{PRICE_NOTE}</p>
-          </div>
-          <p className="price-bar__body">
-            {t.services.priceBody}
-            <br />
-            <span className="price-bar__flag">{t.availability.label}</span>
-          </p>
-          <a
-            className="btn"
-            href={BOOKING_LINK}
-            onClick={() => track("InitiateCheckout")}
-          >
-            {t.cta.reserve}
-          </a>
         </div>
       </div>
     </section>
