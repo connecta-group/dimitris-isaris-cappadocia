@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -7,12 +7,12 @@
 
     <script>
       // Set the document language before the app renders. New visitors default
-      // to Turkish; a saved preference (en/tr) always wins. Keeps the <html lang>
+      // to English; a saved preference (en/tr) always wins. Keeps the <html lang>
       // attribute correct from the first paint.
       (function () {
         try {
           var l = localStorage.getItem("dimitris_site_language");
-          document.documentElement.lang = l === "en" || l === "tr" ? l : "tr";
+          document.documentElement.lang = l === "en" || l === "tr" ? l : "en";
         } catch (e) {}
       })();
     </script>
@@ -82,7 +82,7 @@
         "organizer": { "@type": "Organization", "name": "Dimitris Isaris Experiences" },
         "offers": {
           "@type": "Offer",
-          "price": "849",
+          "price": "699",
           "priceCurrency": "EUR",
           "availability": "https://schema.org/LimitedAvailability",
           "url": "https://dimitrisisaris-cappadocia.netlify.app/#reservation"

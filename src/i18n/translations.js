@@ -229,14 +229,14 @@ export const translations = {
       options: [
         {
           title: "Full Payment",
-          price: "€849",
+          price: "€699",
           desc: "Secure your place with one complete payment.",
           cta: "Pay in Full",
         },
         {
           title: "Pay in 2 Instalments",
-          price: "€425 today",
-          desc: "Pay €425 today and the remaining €424 by 1 September 2026.",
+          price: "€350 today",
+          desc: "Remaining €349 by 1 September 2026. Secure your place by paying the first instalment today.",
           cta: "Pay First Instalment",
         },
       ],
@@ -245,10 +245,10 @@ export const translations = {
       secure: "Payment is processed by Stripe. Card details are never entered on this website.",
       infoTitle: "Payment Information",
       info: [
-        "The total event price remains €849.",
-        "Your reservation is confirmed after receiving the first payment of €425.",
-        "The remaining balance of €424 must be paid no later than 1 September 2026.",
-        "Once the first payment has been completed, our team will contact the guest with the final payment details.",
+        "The total event price is €699 per person.",
+        "Your reservation is confirmed after receiving the first payment of €350.",
+        "The remaining balance of €349 must be paid no later than 1 September 2026.",
+        "Once the first payment has been completed, our team will contact you with the final payment details.",
       ],
       contactPre: "Questions before booking?",
     },
@@ -517,14 +517,14 @@ export const translations = {
       options: [
         {
           title: "Tek Seferde Ödeme",
-          price: "€849",
+          price: "€699",
           desc: "Yerinizi tek ödeme ile ayırtın.",
           cta: "Tek Seferde Öde",
         },
         {
           title: "2 Taksitte Ödeme",
-          price: "Bugün €425",
-          desc: "Bugün €425 ödeyin, kalan €424 tutarını en geç 1 Eylül 2026 tarihine kadar tamamlayın.",
+          price: "Bugün €350",
+          desc: "Kalan €349 tutarı en geç 1 Eylül 2026 tarihine kadar ödeyin. İlk taksiti bugün ödeyerek yerinizi ayırtın.",
           cta: "İlk Taksiti Öde",
         },
       ],
@@ -533,9 +533,9 @@ export const translations = {
       secure: "Ödeme Stripe tarafından işlenir. Kart bilgileri bu web sitesine asla girilmez.",
       infoTitle: "Ödeme Bilgisi",
       info: [
-        "Etkinliğin toplam ücreti €849'dur.",
-        "Rezervasyonunuz €425 tutarındaki ilk ödemenin alınmasıyla onaylanır.",
-        "Kalan €424 tutarın en geç 1 Eylül 2026 tarihine kadar ödenmesi gerekmektedir.",
+        "Etkinliğin toplam ücreti kişi başı €699'dur.",
+        "Rezervasyonunuz €350 tutarındaki ilk ödemenin alınmasıyla onaylanır.",
+        "Kalan €349 tutarın en geç 1 Eylül 2026 tarihine kadar ödenmesi gerekmektedir.",
         "İlk ödemeniz tamamlandıktan sonra ekibimiz son ödeme bilgileriyle sizinle iletişime geçecektir.",
       ],
       contactPre: "Rezervasyondan önce sorularınız mı var?",

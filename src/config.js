@@ -42,14 +42,14 @@ export const GOOGLE_MAPS_EMBED =
  */
 export const STRIPE_PAYMENT_LINK =
   import.meta.env.VITE_STRIPE_PAYMENT_LINK ||
-  "https://buy.stripe.com/8x2dR9cblfm8awe7kj5wI03";
+  "https://book.stripe.com/14A5kDejt3Dq8o67kj5wI06";
 /**
- * Second payment option — the first of two instalments (€425 today,
- * €424 by 1 September 2026). Set VITE_STRIPE_INSTALMENT_LINK to override.
+ * Second payment option — the first of two instalments (€350 today,
+ * €349 by 1 September 2026). Set VITE_STRIPE_INSTALMENT_LINK to override.
  */
 export const STRIPE_INSTALMENT_LINK =
   import.meta.env.VITE_STRIPE_INSTALMENT_LINK ||
-  "https://buy.stripe.com/eVq3cvdfp1vi6fYgUT5wI04";
+  "https://book.stripe.com/aFaeVdb7hde0bAi6gf5wI05";
 export const HAS_STRIPE_LINK = Boolean(STRIPE_PAYMENT_LINK);
 
 /** Every booking CTA points at Stripe once the link is configured. */
@@ -68,7 +68,7 @@ export const VIDEO_URL =
 /** Alias */
 export const VIDEO_LINK = VIDEO_URL;
 
-export const PRICE = "€849";
+export const PRICE = "€699";
 export const PRICE_NOTE = "per person";
 
 /** Availability is presented as a phrase, never a count. */
