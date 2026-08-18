@@ -5,6 +5,15 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Server-side functions (Stripe webhook -> Meta Conversions API).
+# Explicit so the directory is discovered by production builds regardless of
+# any future config changes. esbuild bundles the .mts handler and its TS deps.
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# SPA fallback. Note: Netlify serves /.netlify/functions/* from the functions
+# runtime before applying these redirects, so the webhook endpoint is unaffected.
 [[redirects]]
   from = "/*"
   to = "/index.html"
